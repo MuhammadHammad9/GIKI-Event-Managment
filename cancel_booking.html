@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Booking</title>
+    <style>
+        body {
+            background: #746aa0; /* Light purple background */
+            margin: 0;
+            padding: 20px; /* Padding around the content */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        .container {
+            max-width: 800px; /* Maximum width for the container */
+            margin: 20px auto; /* Center the container */
+            background: white; /* White background for the container */
+            padding: 30px; /* Padding around the content */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            text-align: center; /* Centered text */
+        }
+
+        h1 {
+            text-transform: uppercase; /* Block letters for the heading */
+            color: #673AB7; /* Dark purple */
+            font-weight: 700; /* Bold text */
+            font-size: 2em; /* Larger font size */
+            margin-bottom: 20px; /* Spacing below the heading */
+        }
+
+        label {
+            font-weight: bold; /* Bold font for labels */
+            margin-bottom: 10px; /* Spacing below the label */
+            display: block; /* Ensures label occupies full width */
+        }
+
+        input[type="number"] {
+            font-size: 1em; /* Standard font size */
+            padding: 10px; /* Padding inside the field */
+            border: 1px solid #ddd; /* Solid border */
+            border-radius: 5px; /* Rounded corners */
+            margin: 10px 0; /* Spacing around the field */
+            width: 100%; /* Use full width */
+        }
+
+        .button-group {
+            margin-top: 20px; /* Spacing above the button group */
+        }
+
+        .btn-cancel {
+            font-size: 1.2em; /* Larger font size for buttons */
+            padding: 10px 20px; /* Padding inside the button */
+            border-radius: 5px; /* Rounded corners */
+            border: none; /* No border */
+            color: white; /* White text */
+            background-color: #D32F2F; /* Red for "Cancel Booking" */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .btn-cancel:hover {
+            background-color: #C62828; /* Darker red on hover */
+        }
+
+        .btn-home {
+            background-color: #388E3C; /* Green for "Return to Home" */
+            color: white;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-home:hover {
+            background-color: #2E7D32; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cancel Booking</h1>
+        <form action="{{ url_for('cancel_booking') }}" method="post">
+            <label for="booking_id">Enter Booking ID to Cancel:</label>
+            <input type="number" id="booking_id" name="booking_id" required>
+            <div class="button-group">
+                <button type="submit" class="btn-cancel">Cancel Booking</button>
+            </div>
+        </form>
+
+        <!-- Return to Home Button -->
+        <div class="button-group">
+            <a href="{{ url_for('index') }}" class="btn-home">Return to Home</a> <!-- Home button -->
+        </div>
+    </div>
+</body>
+</html>
